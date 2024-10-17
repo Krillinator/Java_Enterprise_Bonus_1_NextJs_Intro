@@ -14,6 +14,7 @@ export default function Home() {
 
   // Q. When would you want to use functions within useEffect dependency bracket []
   // Q. LiveServer with Next.js?
+  // Q. How do we check when things go through 'componentDidMount'
 
   // UseEffect Hook - onRender
   useEffect(() => {
