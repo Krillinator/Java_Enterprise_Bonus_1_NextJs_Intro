@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 export default function Home() {
@@ -9,22 +10,40 @@ export default function Home() {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts")
     const data = await response.json()
 
-    setData(JSON.stringify(data))
+    // setData(JSON.stringify(data))
+  }
+
+  const fetchCustomApi = async () => {
+    const response = await fetch("/api")
+    const data = await response.json()
+
+    console.log(JSON.stringify(data))
   }
 
   // Q. When would you want to use functions within useEffect dependency bracket []
   // Q. LiveServer with Next.js?
   // Q. How do we check when things go through 'componentDidMount'
+  // Q. NODE - vad innebär det?
+  // Q. Why does next.js block its own domain for CORS?
+  // A. It Does NOT, it does however block when you type in localhost:3000
 
   // UseEffect Hook - onRender
   useEffect(() => {
     fetchMyApi()
+    fetchCustomApi()
   }, [])
 
   return (
     <div className="flex justify-center items-center bg-blue-800 flex-col h-screen">
       <h1>Welcome To Our First Application</h1>
       <p>This app is under construction...</p>
+
+      <Link
+        href={"/student"}
+        className="transition hover:text-cyan-50 hover:translate-x-1"
+      >
+        Navigate to Student Page
+      </Link>
 
       <span>
         <p>Logical Arithmatic Operators</p>
